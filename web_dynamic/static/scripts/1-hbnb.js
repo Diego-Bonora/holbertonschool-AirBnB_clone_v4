@@ -7,15 +7,12 @@ window.onload = function () {
         } else {
             delete (dict[$(this).attr('data-id')])
         }
-        let text = ""
-        let comma = ""
-        for (key in dict) {
-            text += comma + dict[key]
-            comma = ", "
-            if (text.length >= 20) {
-                text = text.substring(0, 20) + "..."
-            }
+
+        let text = Object.values(dict).join(", ")
+        if (text.length >= 20) {
+            text = text.substring(0, 20) + "..."
         }
+        text += "&nbsp;"
         $('.amenities h4').html(text)
     })
 };
